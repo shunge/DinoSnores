@@ -319,7 +319,7 @@
 
 		  </div>
 		</div>
-
+		<div class="color-holder" value="#ffffff">
 	</body>
 	<style>
 		.top-buffer { margin-top:20px; }
@@ -348,9 +348,13 @@
 		.button5 {background-color: #555555;} /* Black */
 	</style>
 	<script type="text/javascript">
+
 	$( document ).ready(function() {
     	console.log( "Welcome to our little Dino-snore app!!" );
+    	var picker = $('.pixel-picker-container').pixelPicker();
+    	console.log(picker);
 	});
-	$('.pixel-picker-container').pixelPicker();
+
+
 	</script>
 </html>

@@ -33,7 +33,9 @@
         parseHex,
         parseRgb,
         arrayToRgb,
-        arrayEqual;
+        arrayEqual,
+        getMap,
+        setColor;
 
     // Takes the passed in cell, finds its current background color within
     // the color palette, and updates the currentColor to the next
@@ -96,12 +98,17 @@
         handler.val(JSON.stringify(map));
       }
 
-      console.log(JSON.stringify(map));
+      //console.log(JSON.stringify(map));
     };
 
     // return the map JSON
     getMap = function(){
       return map;
+    }
+
+    // set the currentColor
+    setColor = function(color){
+      currentColor  = color;
     }
 
     // Determine if we need to parse a hex or rgb value
@@ -141,13 +148,16 @@
 
     // Woo settings!
     settings = $.extend({
-      update: null,
+      update: function() {
+        palette.push(parseColor($(".color-holder").attr("value")));
+        console.log(currentColor);
+      },
       ready: null,
       rowSelector: '.pixel-picker-row',
       cellSelector: '.pixel-picker-cell',
       eraserColor: null,
       palette: [
-        '#ffffff', '#000000',
+        '#000000',
         '#ff0000', '#0000ff',
         '#ffff00', '#008000'
       ]
