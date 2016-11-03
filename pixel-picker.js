@@ -157,9 +157,7 @@
       cellSelector: '.pixel-picker-cell',
       eraserColor: null,
       palette: [
-        '#000000',
-        '#ff0000', '#0000ff',
-        '#ffff00', '#008000'
+        '#ffffff',
       ]
     }, options);
 
