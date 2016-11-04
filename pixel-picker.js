@@ -40,6 +40,7 @@
     if(options != null){
       $.getJSON("https://dinosnore.herokuapp.com/map01.json", function(json) {
           console.log(json); // this will show the info it in firebug console
+          map = json;
       });
     }
 
