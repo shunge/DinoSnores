@@ -98,7 +98,7 @@
         handler.val(JSON.stringify(map));
       }
 
-      //console.log(JSON.stringify(map));
+      console.log(JSON.stringify(map));
     };
 
     // return the map JSON
