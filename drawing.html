@@ -9,6 +9,7 @@
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	  <script src="pixel-picker.js"></script>
 	  <link href="pixel-picker.css" rel="stylesheet" type="text/css">
+	  <link href="all.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -301,7 +302,7 @@
 			</div>
 		</div>
 
-       <center> Change colors: </center>
+       <center> Select Color: </center>
        <center>
 		<div class="container">
 			<div class="top-buffer btn-group btn-group-justified top-buffer" >
@@ -320,23 +321,26 @@
 
 		  </div>
 		</div>
+<br><br><br>
+
 		<div class="color-holder" value="#000000">
 	</body>
 	<style>
+	body{
+		background-color: #96beff;
+	}
 		.top-buffer { margin-top:20px; }
 
 		.button {
     		height: 50px;
     		width: 50px;
     		border-radius: 50px;
-    		border: 1px solid #000;
+    		border: 2px solid #96beff;
     		margin-left: 20px;
 		}
-
-		.navbar { 
-		    background-color: #B5CAA0; /* Green */
-		    color: #ffffff;
-		}
+        .button:active, .button:hover, .button:focus{
+        	border: 2px solid white;
+        }
 
 		.btn {
 			border-radius: 24px;

@@ -1,0 +1,17 @@
+body{
+		background-color: #96beff; /* Blue */
+}
+
+.navbar { 
+		background-color: #00cc5b; /* Green */
+		color: #ffffff;
+		border: none;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color:white;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-brand {
+    color: white;
+}
