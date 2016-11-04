@@ -108,7 +108,8 @@
 
     // set the currentColor
     setColor = function(color){
-      currentColor  = color;
+      currentColor = color;
+      console.log("Yes babe");
     }
 
     // Determine if we need to parse a hex or rgb value
@@ -149,7 +150,9 @@
     // Woo settings!
     settings = $.extend({
       update: function() {
+        palette = [];
         palette.push(parseColor($(".color-holder").attr("value")));
+        currentColor = parseColor($(".color-holder").attr("value"));
         console.log(currentColor);
       },
       ready: null,
