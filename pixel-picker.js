@@ -37,6 +37,12 @@
         getMap,
         setColor;
 
+    if(options != null){
+      $.getJSON("https://dinosnore.herokuapp.com/map01.json", function(json) {
+          console.log(json); // this will show the info it in firebug console
+      });
+    }
+
     // Takes the passed in cell, finds its current background color within
     // the color palette, and updates the currentColor to the next
     // (or previous if reverse is true) color in the palette
