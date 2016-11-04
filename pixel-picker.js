@@ -153,7 +153,7 @@
           map = json;
 
           // Find all the rows
-          rows = this.find('.pixel-picker-row');
+          rows = $(this).find('.pixel-picker-row');
           rowCount = rows.length;
 
           rows.each(function(rowIndex, row) {
