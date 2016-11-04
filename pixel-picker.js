@@ -98,7 +98,7 @@
         handler.val(JSON.stringify(map));
       }
 
-      //console.log(JSON.stringify(map));
+      console.log(JSON.stringify(map));
     };
 
     // return the map JSON
@@ -150,7 +150,7 @@
       rows = this.find('.pixel-picker-row');
       $.getJSON("https://raw.githubusercontent.com/shunge/DinoSnores/master/map01.json", function(json) {
           //console.log(json); // this will show the info it in firebug console
-          console.log("Success loading JSON.");
+          console.log("JSON loaded.");
           map = json;
           console.log(map);
 
