@@ -1,6 +1,10 @@
 {
   "name": "hello-world",
   "description": "hello world test app",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "version": "0.0.1",
   "private": true,
   "dependencies": {
