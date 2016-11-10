@@ -6,6 +6,7 @@ var path = require('path');
 var bodyParser = require('body-parser')
 var total_gallery = 0;
 var gallery_map = [];
+var title = "";
 
 
 var app = express();
