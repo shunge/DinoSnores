@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="todoApp">
 	<head>
 	  <title>DinoSnore</title>
 	  <meta charset="utf-8">
@@ -7,7 +7,8 @@
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	  <script src="todo.js"></script>
 	  <script src="pixel-picker.js"></script>
 	  <script src="variable.js"></script>
 	  	  <link href="all.css" rel="stylesheet" type="text/css">
@@ -308,7 +309,7 @@
 		<br>
 		<center> Pick a color, then tap on a cell twice to apply the color!! </center><br>
 		     <center>
-    <div ng-app>
+    <div class = "titleholder">
       <label>Titile:</label>
       <input type="text" ng-model="yourTitle" placeholder="Enter a title here">
       <hr>
@@ -330,7 +331,7 @@
 				<button class="button10 button" value="#00AA90"></button>
 			</div>
 		</div>
-		</center>
+		
 		<div class="container" >
 		  <div class="btn-group btn-group-justified top-buffer" >
 		    <a href="./menu.html" class="btn btn-success">LOG DREAM</a>
@@ -339,6 +340,28 @@
 		  </div>
 		</div>
 <br><br><br>
+	
+	<div ng-app="todoApp">
+    <h2>Lucid dreaming todolist</h2>
+    <div ng-controller="TodoListController as todoList">
+      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+    </div>
+	</div>
+	</center>
 
 		<div class="color-holder" value="#000000">
 	</body>
