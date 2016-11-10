@@ -1,0 +1,1 @@
+var gallery_count = 1;

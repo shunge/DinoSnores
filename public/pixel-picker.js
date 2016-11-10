@@ -22,6 +22,7 @@
         isDragging = false,
         palette = [],
         map = [];
+        userMap = []
 
     // Core functions
     var updateHandler,
@@ -88,6 +89,8 @@
 
       map[rowIndex][cellIndex] = newColor;
 
+
+      
       if (dontHandle) return;
 
       if (typeof handler === 'function') {
@@ -97,8 +100,6 @@
         // Or, we can update the value="" of a jQuery input
         handler.val(JSON.stringify(map));
       }
-
-      console.log(JSON.stringify(map));
     };
 
     // return the map JSON
@@ -148,11 +149,12 @@
 
     if(options != null){
       rows = this.find('.pixel-picker-row');
-      $.getJSON("https://raw.githubusercontent.com/shunge/DinoSnores/master/map01.json", function(json) {
+      //$.getJSON("https://raw.githubusercontent.com/shunge/DinoSnores/master/public/map01.json", function(json) {
+      $.get("./map", function(data) {
           //console.log(json); // this will show the info it in firebug console
           console.log("JSON loaded.");
-          map = json;
-          console.log(map);
+          //map = json;
+          map = data;
 
           // Find all the rows
           rowCount = rows.length;
@@ -180,7 +182,6 @@
         palette = [];
         palette.push(parseColor($(".color-holder").attr("value")));
         currentColor = parseColor($(".color-holder").attr("value"));
-        console.log(currentColor);
       },
       ready: null,
       rowSelector: '.pixel-picker-row',
@@ -269,6 +270,10 @@
           cycleColor(cell, isRightClick);
           applyColor(cell);
           updateHandler(rowIndex, cellIndex);
+          $.post("./map", { 'map' : map }, function(data){
+              console.log("posted");
+              console.log(map);
+          });
         });
 
         // Turn dragging off when we mouse up

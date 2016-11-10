@@ -8,6 +8,7 @@
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	  <script src="pixel-picker.js"></script>
+	  <script src="variable.js"></script>
 	  	  <link href="all.css" rel="stylesheet" type="text/css">
 
 	  <link href="pixel-picker.css" rel="stylesheet" type="text/css">
@@ -325,7 +326,7 @@
 		<div class="container" >
 		  <div class="btn-group btn-group-justified top-buffer" >
 		    <a href="./menu.html" class="btn btn-success">LOG DREAM</a>
-		    <a href="./menu.html"class="btn btn-danger">CANCEL</a>
+		    <a href="./menu.html" class="btn btn-danger">CANCEL</a>
 
 		  </div>
 		</div>
@@ -368,12 +369,18 @@
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-    	console.log( "Welcome to our little Dino-snore app!!" );
+    	console.log( "Welcome to our little Dino-snore app!!!" );
     	var picker = $('.pixel-picker-container').pixelPicker();
-    	console.log(picker);
+
     	$('.button').click(function(){
     		$(".color-holder").attr("value", $(this).attr("value"));
-    		console.log($(".color-holder").attr("value"));
+    		//console.log($(".color-holder").attr("value"));
+    	});
+
+    	$('.btn-success').click(function(){
+    		$.post("./gallery", {'val' : 1}, function(data){
+    			window.location.href='menu.html';
+			});
     	});
 	});
 
