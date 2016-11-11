@@ -2,11 +2,11 @@ angular.module('todoApp', [])
   .controller('TodoListController', function() {
     var todoList = this;
     todoList.todos = [
-      {text:'I spent 30 mins meditating today .', done:false},
+      {text:'I spent 30 min. meditating today.', done:false},
       {text:'Today I did 5 reality checks.', done:false},
       {text:'Before I go to sleep, I told myself, <I am going to sleep.>', done:false},
       {text:'I slept at least 6 hours today.', done:false},
-      {text:'I recored my drawing today.', done:false}];
+      {text:'I recorded my drawing today.', done:false}];
  
     todoList.addTodo = function() {
       todoList.todos.push({text:todoList.todoText, done:false});
