@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+	<head>
+	  <title>DinoSnore</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	  <script src="todo.js"></script>
+	  <script src="pixel-picker.js"></script>
+	  <script src="variable.js"></script>
+	  	  <link href="all.css" rel="stylesheet" type="text/css">
+
+	  <link href="pixel-picker.css" rel="stylesheet" type="text/css">
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span> 
+		      </button>
+		      
+		  <!--     	<a class="navbar-brand navbar-brand-logo">
+	            	<div class="cloud">
+	                    <img src="./resource/cloud.png" height="20" width="35">
+	            	</div>
+	        	</a> -->
+	      <!--   <a class="navbar-brand" href="./menu.html">Home</a>	   -->
+	      <p class="nav-coin glyphicon glyphicon-cloud">100</p>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="myNavbar">
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="./menu.html">Home</a></li>
+		        <li><a href="./store.html">Store</a></li>
+		        <li><a href="./login.html">Logout</a></li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+		<br>
+			<div class="drawing-title">
+				Log New Dream - Step 2 of 2
+			</div>
+		</br>
+	
+	<div ng-app="todoApp">
+	    <div ng-controller="TodoListController as todoList">
+	   <!---    <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+	      [ <a href="" ng-click="todoList.archive()">archive</a> ] -->
+	      <ul class="unstyled">
+	        <li ng-repeat="todo in todoList.todos">
+	          <label class="checkbox">
+	            <input type="checkbox" class="check-off" ng-model="todo.done">
+	            <span class="done-{{todo.done}}">{{todo.text}}</span>
+	          </label>
+	        </li>
+	      </ul>
+<!-- 	      <form ng-submit="todoList.addTodo()">
+	        <input type="text" ng-model="todoList.todoText"  size="30"
+	               placeholder="add new todo here">
+	        <input class="btn-primary" type="submit" value="add">
+	      </form> -->
+	    </div>
+	</div>
+<br>
+		<div class="container" >
+		  <div class="btn-group btn-group-justified top-buffer" >
+		    <a href="./menu.html" class="btn btn-success">FINISH</a>
+		    <a href="./menu.html" class="btn btn-danger">CANCEL</a>
+		  </div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+
+	$( document ).ready(function() {
+    	console.log( "Welcome to our little Dino-snore app!!!" );
+    	var picker = $('.pixel-picker-container').pixelPicker();
+
+    	$('.button').click(function(){
+    		$(".color-holder").attr("value", $(this).attr("value"));
+    		//console.log($(".color-holder").attr("value"));
+    	});
+
+    	$('.btn-success').click(function(){
+    		$.post("./gallery", {'val' : 1} , function(data){
+    			window.location.href='menu.html';
+			});
+    	});
+	});
+
+
+	</script>
+</html>

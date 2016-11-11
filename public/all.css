@@ -3,36 +3,101 @@ body{
 }
 
 .navbar { 
-		background-color: #00cc5b; /* Green */
+		background-color: #00cc00; /* Green */
+    padding:none;
 		color: #ffffff;
-		border: none;
+		border-width: 0px;
+    border-radius: 0;
 }
+.glyphicon-cloud{
+  font-family: 'Arial', sans-serif;
+}
+/*.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+.navbar-toggle{
+  display: none;
+}*/
 
 .navbar-default .navbar-nav>li>a {
     color:white;
     text-transform: uppercase;
 }
+.navbar-default:hover .navbar-nav>li>a:hover{
+  background-color: red;
+  color:white;
+}
 .navbar-default .navbar-brand {
     color: white;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Arial', sans-serif;
 }
-
+.navbar-brand:hover{
+  color:white;
+}
+.nav-coin{
+  color:white;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  padding-top:16px;
+  padding-left: 15px;
+}
 
 /* menu.html*/
 .new-dream{
 	position: fixed;
-    bottom: 100px;
-  /* width:90%;*/
+    bottom: 10%;
   width:60%;
   margin-left:20%;
   background-color: white;
-  color:darkblue;
   padding-top: 20px;
   padding-bottom: 20px;
   border-width: 0px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  word-wrap: break-word;
+}
+.new-dream:hover{
+  background-color: #00cc00;
+}
+.btn-lg, .new-dream{
+  background-color: #cc0000;
+  word-wrap: break-word;
 }
 
+/* drawing.html */
+
+.drawing-title{
+  font-size: 30px;
+  text-align: center;
+}
+
+
+/* todo.html */
+label.checkbox{
+ /* color:red;*/
+  width:80%;
+  margin-left: 10%;
+  word-wrap: break-word;
+  padding:5px;
+}
+
+ul{
+  list-style-type:none;
+}
 
 
 /* pop up*/
