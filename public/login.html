@@ -28,7 +28,7 @@
 	    	  <div class="modal-dialog">
 					<div class="loginmodal-container">
 						<h1>LOGIN</h1><br>
-					  <form action="menu.html">
+					  <form name="login" action="menu.html" onsubmit="return validateForm()">
 						<input type="text" name="user" placeholder="Username">
 						<input type="password" name="pass" placeholder="Password">
 						<input type="submit" name="login" class="login loginmodal-submit" value="SUBMIT">
@@ -46,7 +46,7 @@
 	    	  <div class="modal-dialog">
 					<div class="loginmodal-container">
 						<h1>SIGN-UP</h1><br>
-					  <form action="menu.html">
+					  <form name="sign-up" action="menu.html" onsubmit="return validateForm2()">
 						<input type="text" name="user" placeholder="Username">
 						<input type="password" name="pass" placeholder="Password">
 						<input type="submit" name="login" class="login loginmodal-submit" value="SUBMIT">
@@ -60,4 +60,15 @@
 			  </div>
 			</center>
 </body>
+<script>
+function validateForm() {
+    var x = document.forms["login"]["user"].value;
+    var y = document.forms["login"]["pass"].value;
+    if (x != "dino" || y != "snore") {
+        alert("Incorrect login credentials. Please try again.");
+        return false;
+    }
+}
+
+</script>
 </html>
