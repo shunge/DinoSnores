@@ -60,6 +60,32 @@
 	    </div>
 	</center>
 
+			<br>
+		<center> Pick a color, then tap on a cell twice to apply the color!! </center><br>
+<!-- 		     <center>
+    <div class = "titleholder">
+      <label>Dream Title:</label>
+      <input type="text" ng-model="yourTitle" placeholder="Enter a title here">
+      <hr>
+      <h1>{{yourTitle}}</h1>
+    </div>
+         </center> -->
+       <center>
+		<div class="container">
+			<div class="top-buffer btn-group btn-group-justified top-buffer" >
+				<button class="button1 button" value="#4CAF50"></button>
+				<button class="button2 button" value="#008CBA"></button>
+				<button class="button3 button" value="#f44336"></button>
+				<button class="button4 button" value="#ffffff"></button>
+				<button class="button5 button" value="#555555"></button>
+				<button class="button6 button" value="#000000"></button>
+				<button class="button7 button" value="#F9BF45"></button>
+				<button class="button8 button" value="#6A4C9C"></button>
+				<button class="button9 button" value="#E87A90"></button>
+				<button class="button10 button" value="#00AA90"></button>
+			</div>
+		</div>
+
 		<center> Tap/Press to draw! </center><br>
 		<div class="container">
 			<div class="pixel-picker-container">
@@ -324,31 +350,7 @@
 		  	<!-- Wash, rinse, repeat -->
 			</div>
 		</div>
-		<br>
-		<center> Pick a color, then tap on a cell twice to apply the color!! </center><br>
-<!-- 		     <center>
-    <div class = "titleholder">
-      <label>Dream Title:</label>
-      <input type="text" ng-model="yourTitle" placeholder="Enter a title here">
-      <hr>
-      <h1>{{yourTitle}}</h1>
-    </div>
-         </center> -->
-       <center>
-		<div class="container">
-			<div class="top-buffer btn-group btn-group-justified top-buffer" >
-				<button class="button1 button" value="#4CAF50"></button>
-				<button class="button2 button" value="#008CBA"></button>
-				<button class="button3 button" value="#f44336"></button>
-				<button class="button4 button" value="#ffffff"></button>
-				<button class="button5 button" value="#555555"></button>
-				<button class="button6 button" value="#000000"></button>
-				<button class="button7 button" value="#F9BF45"></button>
-				<button class="button8 button" value="#6A4C9C"></button>
-				<button class="button9 button" value="#E87A90"></button>
-				<button class="button10 button" value="#00AA90"></button>
-			</div>
-		</div>
+
 		
 		<div class="container" >
 		  <div class="btn-group btn-group-justified top-buffer" >
@@ -414,21 +416,22 @@
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-    	console.log( "Welcome to our little Dino-snore app!!!" );
+    	console.log( "Welcome to our little Dino-snore app!!!!!" );
     	var picker = $('.pixel-picker-container').pixelPicker();
 
     	$('.button').click(function(){
     		$(".color-holder").attr("value", $(this).attr("value"));
-    		//console.log($(".color-holder").attr("value"));
     	});
 
     	$('.btn-success').click(function(){
-    		$.post("./gallery", {'val' : 1} , function(data){
+    		var date = new Date().toString().split("T")[0];
+    		console.log(date);
+    		$.post("./gallery", {'val' : 1, 'title' : $(".ng-binding").text(), 'date' : date} , function(data){
     			window.location.href='menu.html';
 			});
+
     	});
 	});
-
 
 	</script>
 </html>

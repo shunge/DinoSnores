@@ -6,7 +6,8 @@ var path = require('path');
 var bodyParser = require('body-parser')
 var total_gallery = 0;
 var gallery_map = [];
-var title = "";
+var title = "untitle";
+var date = (new Date()).toString().split(' ').splice(1,3).join(' ');
 
 
 var app = express();
@@ -25,9 +26,15 @@ app.get('/', function (req, res) {
 })
 
 app.post('/gallery', function (req, res) {
+	
   res.send([total_gallery]);
   total_gallery += parseInt(req.body.val);
-  console.log(total_gallery);
+
+  if (req.body.title != undefined && req.body.title != ""){
+  	console.log("title is " + req.body.title);
+  	title = req.body.title;
+	}
+
 })
 
 app.post('/map', function (req, res) {
@@ -37,6 +44,10 @@ app.post('/map', function (req, res) {
 
 app.get('/map', function (req, res) {
   res.send(gallery_map);
+})
+
+app.get('/info', function(req, res) {
+	res.send({'title': title, "date" : date});
 })
 
 

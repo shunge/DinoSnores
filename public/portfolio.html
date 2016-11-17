@@ -303,10 +303,12 @@
 		  
 
 		  	<!-- Wash, rinse, repeat -->
-		  	<br>
-		  	Drawing Information
-		  	<br>
-		  	Date
+		  	<div>
+		  		<br>
+		  		<p id="myTitle">Title: </p>
+		  		<br>
+		  		<p id="mydate" >Date:  </p>
+		  	</div>
 			</div>
 		</div>
 
@@ -339,7 +341,13 @@
 	$( document ).ready(function() {
     	console.log( "Welcome to our little Dino-snore app!!" );
     	var picker = $('.pixel-picker-container').pixelPicker("Yes");
-    	console.log(picker);
+    	
+    	$.get("./info", function(data){
+    			console.log(data.title);
+    			console.log(data.date);
+    			$('#myTitle').text("Title : " + data.title);
+    			$('#mydate').text("Date: " + data.date);
+		});
 	});
 
 
