@@ -343,8 +343,6 @@
     	var picker = $('.pixel-picker-container').pixelPicker("Yes");
     	
     	$.get("./info", function(data){
-    			console.log(data.title);
-    			console.log(data.date);
     			$('#myTitle').text("Title : " + data.title);
     			$('#mydate').text("Date: " + data.date);
 		});

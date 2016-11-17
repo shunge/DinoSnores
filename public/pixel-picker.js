@@ -12,17 +12,51 @@
  * Version:  0.1.2
  */
 
+  var map = [],
+     currentColor = [0,0,0];
+
+  parseHex = function(hexValue) {
+      var rgb = parseInt(hexValue.substring(1), 16);
+      return [(rgb >> 16) & 0xFF, (rgb >> 8) & 0xFF, rgb & 0xFF];
+    };
+
+    // Parse an RGB value to an RGB array (i.e. [255,255,255])
+ parseRgb = function(rgbValue) {
+      return rgbValue.replace(/[^\d,]/g, '').split(',').map(function(value) {
+        return parseInt(value, 10);
+      });
+    };
+
+  parseColor = function(color) {
+      // If the color is already an RGB array, return
+      if (Object.prototype.toString.call(color) === '[object Array]') {
+        return color;
+      };
+
+      return color.charAt(0) === '#' ? parseHex(color) : parseRgb(color);
+    };
+
+// post the map to the server
+ function postMap(){
+  $.post("./map", { 'map' : map }, function(data){
+        console.log(map);
+    });
+ }
+
+// change the current color
+function changeColor(color){
+    currentColor = parseColor(color);
+ }
+
 (function ($) {
 
   $.fn.pixelPicker = function(options) {
+
     var settings,
         rows,
-        currentColor,
         isErasing = false,
         isDragging = false,
-        palette = [],
-        map = [];
-        userMap = []
+        palette = [];
 
     // Core functions
     var updateHandler,
@@ -35,7 +69,6 @@
         parseRgb,
         arrayToRgb,
         arrayEqual,
-        getMap,
         setColor;
 
     // Takes the passed in cell, finds its current background color within
@@ -101,11 +134,6 @@
         handler.val(JSON.stringify(map));
       }
     };
-
-    // return the map JSON
-    getMap = function(){
-      return map;
-    }
 
     // set the currentColor
     setColor = function(color){
@@ -180,9 +208,9 @@
     // Woo settings!
     settings = $.extend({
       update: function() {
-        palette = [];
+        // palette = [];
         palette.push(parseColor($(".color-holder").attr("value")));
-        currentColor = parseColor($(".color-holder").attr("value"));
+        // currentColor = parseColor($(".color-holder").attr("value"));
       },
       ready: null,
       rowSelector: '.pixel-picker-row',
@@ -245,7 +273,7 @@
     rowCount = rows.length;
 
     // Set up our initial color
-    currentColor = settings.palette[0];
+    // currentColor = settings.palette[0];
 
     rows.each(function(rowIndex, row) {
       row = $(row);
@@ -268,13 +296,11 @@
           isDragging = true;
 
           // Now we do all the work
-          cycleColor(cell, isRightClick);
+          // cycleColor(cell, isRightClick);
           applyColor(cell);
           updateHandler(rowIndex, cellIndex);
-          $.post("./map", { 'map' : map }, function(data){
-              console.log("posted");
-              console.log(map);
-          });
+          console.log("Color: " + currentColor);
+
         });
 
         // Turn dragging off when we mouse up

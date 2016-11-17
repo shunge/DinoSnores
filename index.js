@@ -31,14 +31,12 @@ app.post('/gallery', function (req, res) {
   total_gallery += parseInt(req.body.val);
 
   if (req.body.title != undefined && req.body.title != ""){
-  	console.log("title is " + req.body.title);
   	title = req.body.title;
 	}
 
 })
 
 app.post('/map', function (req, res) {
-  console.log("In");
   gallery_map = req.body.map;
 })
 
