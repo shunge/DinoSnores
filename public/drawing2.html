@@ -15,6 +15,7 @@
 
 	  <link href="pixel-picker.css" rel="stylesheet" type="text/css">
 	</head>
+	<body onload="getMoney()">
 	<body>
 		<nav class="navbar navbar-default">
 		  <div class="container">
@@ -436,6 +437,24 @@
 
     	});
 	});
+    
+    function getMoney() {
+			$.get("./getMoney", function(data) {
+				console.log("getMONEY");
+				console.log(data);
 
+				//ID HTML changer
+				$("#total").html(data.total);
+			});
+		}
+
+		function makeMoney(inc) {
+		$.get("./store?inc=" + inc, function(data) {
+				console.log(data);
+
+				//ID HTML changer
+				$("#total").html(data.total);
+			});
+		}
 	</script>
 </html>
