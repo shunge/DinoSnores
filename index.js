@@ -30,7 +30,9 @@ var total = 100;
 
 //localhost:3000/store
 app.get('/store', function(req, res) {
+  if(req.query.inc !== null) {
   total+=parseInt(req.query.inc);
+}
 
   //JSON VARIABLE
   var data = {
@@ -44,7 +46,8 @@ app.get('/store', function(req, res) {
 
 app.get('/getMoney', function(req, res) {
   var data = {
-    total: total
+    total: total,
+    name: "christian"
   }
 
   res.send(data);

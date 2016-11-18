@@ -94,6 +94,7 @@ function getMoney() {
 
 function makeMoney(inc) {
 $.get("./store?inc=" + inc, function(data) {
+	console.log("makeMoney");
 		console.log(data);
 
 		//ID HTML changer
