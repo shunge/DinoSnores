@@ -25,6 +25,31 @@ app.get('/', function (req, res) {
   res.redirect('login.html');
 })
 
+//GLOBAL VARIABLE
+var total = 100;
+
+//localhost:3000/store
+app.get('/store', function(req, res) {
+  total+=parseInt(req.query.inc);
+
+  //JSON VARIABLE
+  var data = {
+    total: total,
+    name: "christian"
+  };
+
+  //SENDS JSON
+  res.send(data);
+});
+
+app.get('/getMoney', function(req, res) {
+  var data = {
+    total: total
+  }
+
+  res.send(data);
+});
+
 app.post('/gallery', function (req, res) {
 	
   res.send([total_gallery]);

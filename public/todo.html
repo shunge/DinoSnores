@@ -15,7 +15,7 @@
 
 	  <link href="pixel-picker.css" rel="stylesheet" type="text/css">
 	</head>
-	<body>
+	<body onload="getMoney()">
 		<nav class="navbar navbar-default">
 		  <div class="container">
 		    <div class="navbar-header">
@@ -31,7 +31,7 @@
 	            	</div>
 	        	</a> -->
 	      <!--   <a class="navbar-brand" href="./menu.html">Home</a>	   -->
-	      <p class="nav-coin glyphicon glyphicon-cloud">100</p>
+	      <p class="nav-coin glyphicon glyphicon-cloud" id="total">100</p>
 		    </div>
 
 		    <div class="collapse navbar-collapse" id="myNavbar">
@@ -72,7 +72,7 @@
 <br>
 		<div class="container" >
 		  <div class="btn-group btn-group-justified top-buffer" >
-		    <a href="./menu.html" class="btn btn-success">FINISH</a>
+		    <a href="./menu.html" class="btn btn-success" onclick="parseForm()">FINISH</a>
 		    <a href="./menu.html" class="btn btn-danger">CANCEL</a>
 		  </div>
 		</div>
@@ -95,6 +95,28 @@
 			});
     	});
 	});
+function parseForm() {
+	var count = 5;
+	var value = 50;
+	makeMoney(count * value);
+}
+function getMoney() {
+	$.get("./getMoney", function(data) {
+		console.log("getMONEY");
+		console.log(data);
+
+		//ID HTML changer
+		$("#total").html(data.total);
+	});
+}
+	function makeMoney(inc) {
+$.get("./store?inc=" + inc, function(data) {
+		console.log(data);
+
+		//ID HTML changer
+		$("#total").html(data.total);
+	});
+}
 
 
 	</script>
