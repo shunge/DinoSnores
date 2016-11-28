@@ -1,3 +1,197 @@
+.wrap {
+  width: 100%;
+/*  margin: 0;*/
+/*margin:auto;*/
+  padding: 100px;
+ /* float: left;*/
+}
+.dino-body {
+  width: 120px;
+  height: 120px;
+  background: #8CBC42;
+  border-radius: 100%;
+  position: absolute;
+  clip: rect(0, 120px, 90px, 0px);
+  margin-left: 10px;
+  margin-top: -12px;
+}
+.dino-dot {
+  width: 6px;
+  height: 6px;
+  background: #ADD174;
+  position: absolute;
+  border-radius: 100%;
+  left: 85px;
+  top: 35px;
+  z-index: 1;
+}
+.dino-dot:after {
+  display: block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #ADD174;
+  position: relative;
+  left: 0;
+  top: -15px; 
+}
+.dino-dot:before {
+  display: block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #ADD174;
+  position: relative;
+  left: 9px;
+  top: 0; 
+}
+.dino-head {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% 50% 0 0;
+  background: #8CBC42;
+  position: absolute;
+  left: 73px;
+  top: 140px;
+  clip: rect(0, 37px, 20px, 0px);  
+}
+.dino-eye {
+  width: 12px;
+  height: 12px;
+  background: #FFFFFF;
+  position: absolute;
+  border-radius: 100%;
+  left: 12px;
+  top: 5px;
+  z-index: 1;
+}
+.dino-eye:after {
+  display: block;
+  content: "";
+  width: 6px;
+  height: 2px;
+  border-radius: 100%;
+  background: #000000;
+  position: relative;
+  left: 4px;
+  top: 4px; 
+}
+.dino-neck {
+  width: 42px;
+  height: 40px;
+  background: #8CBC42;
+  border-radius: 0 0 0 100%;
+  position: absolute;
+  top: 158px;
+  left: 81px;
+}
+.dino-tail {
+  width: 35px;
+  height: 35px;
+  background: #8CBC42;
+  border-radius: 0 100% 0 0;
+  position: absolute;
+  top: 163px;
+  left: 215px;
+}
+.dino-spike {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #C54A21;
+  position: absolute;
+  clip: rect(0, 20px, 7px, 0px);
+  z-index: -1;
+}
+.dino-spike.frst { 
+  left: 22px;
+  top: 0px;
+  transform: rotate(-45deg);
+}
+.dino-spike.scd { 
+  left: 21px;
+  top: -1px;
+  transform: rotate(165deg);
+}
+.dino-leg {
+  width: 30px;
+  height: 30px;
+  background: #8CBC42;
+  border-radius: 100%;
+  position: absolute;
+  transform: rotate(180deg);
+  clip: rect(0, 15px, 15px, 0px);
+  top: 183px;
+}
+.wrap:hover .dino-leg {
+  animation-play-state: running;
+}
+@keyframes walkodd {
+  50%{transform: translateX(20px) rotate(180deg);}
+}
+@keyframes walkeven {
+  50%{transform: translateX(-20px) rotate(180deg);}
+}
+.dino-leg:nth-of-type(odd) {
+  background: #6B9734;
+  animation: walkodd 1s linear infinite;
+  animation-play-state: paused;
+}
+.dino-leg:nth-of-type(even) {
+  animation: walkeven 1s linear infinite;
+  animation-play-state: paused;  
+}
+.dino-leg.frst{ left: 115px; }
+.dino-leg.scd { left: 130px; }
+.dino-leg.thd { left: 165px; }
+.dino-leg.frth { left: 180px; }
+
+.dino-scale {
+  width: 25px;
+  height: 25px;
+  background: #E95024;
+  border-radius: 0 50% 50% 50%;
+  float: left;
+}
+.dino-scale.frst {
+  position: absolute;
+  left: 105px;
+  top: 120px;  
+  transform: rotate(-5deg);
+  z-index: -1;
+}
+.dino-scale.scd {
+  transform: rotate(25deg);
+  position: absolute;
+  left: 129px;
+  top: 102px;
+  z-index: -1;
+}
+.dino-scale.thd {
+  transform: rotate(45deg);
+  position: absolute;
+  left: 159px;
+  top: 96px;  
+  z-index: -1;
+}
+.dino-scale.frth {
+  transform: rotate(75deg);
+  position: absolute;
+  left: 189px;
+  top: 105px;  
+  z-index: -1;
+}
+.dino-scale.fth {
+  transform: rotate(115deg);
+  position: absolute;
+  left: 210px;
+  top: 125px;  
+  z-index: -1;
+}
+
+
 body{
 		background-color: #96beff; /* Blue */
 }
@@ -31,6 +225,8 @@ body{
   display: none;
 }*/
 
+
+
 .navbar-default .navbar-nav>li>a {
     color:white;
     text-transform: uppercase;
@@ -59,9 +255,9 @@ body{
 /* menu.html*/
 .new-dream{
 	position: fixed;
-    bottom: 10%;
-  width:60%;
-  margin-left:20%;
+  bottom: 10%;
+  width:80%;
+  margin-left:10%;
   background-color: white;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -71,6 +267,22 @@ body{
   word-wrap: break-word;
 }
 .new-dream:hover{
+  background-color: #00cc00;
+}
+.new-todo{
+  position: fixed;
+  bottom: calc(10% + 70px);
+  width:80%;
+  margin-left:10%;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-width: 0px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+.new-todo:hover{
   background-color: #00cc00;
 }
 .btn-lg, .new-dream{
